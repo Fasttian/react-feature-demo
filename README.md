@@ -6,6 +6,16 @@ $ cd react-feature-demo
 $ npm install
 $ npm start
 ```
+## features
+### search github with graphQL Api
+需求：
+> 在输入框中搜索github关键字，使用github graphQL Api，随着用户需求返回结果（键入停止时）
+
+### 定时获取数据
+需求：
+> 可手动或自动获取数据，自动间隔10分钟，数据可排序
+
+
 ## 代码组织
 
 ### 问题
