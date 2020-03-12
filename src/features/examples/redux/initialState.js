@@ -9,6 +9,7 @@ const initialState = {
   jingHangList:[],
   fetchListPending: false,
   fetchListError: null,
+  searchWhat: 'ant-design'
 };
 
 export default initialState;

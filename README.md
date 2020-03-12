@@ -2,7 +2,7 @@
 ## 启动
 
 ```bash
-$ cd special-data
+$ cd react-feature-demo
 $ npm install
 $ npm start
 ```

@@ -6,6 +6,8 @@ import { Provider } from 'react-redux';
 import { Switch, Route } from 'react-router-dom';
 import { ConnectedRouter } from 'react-router-redux';
 import history from './common/history';
+import ApolloClient from 'apollo-boost'
+import { ApolloProvider} from '@apollo/react-hooks';
 
 function renderRouteConfigV3(routes, contextPath) {
   // Resolve route config object in React Router v3.
@@ -41,6 +43,28 @@ function renderRouteConfigV3(routes, contextPath) {
   return <Switch>{children}</Switch>;
 }
 
+const GITHUB_BASE_URL = `https://api.github.com/graphql`;
+const GITHUB_PROSONAL_ACCESS_TOKEN= '0fa7af007098ba68e3576823b7ab10d522b33c6e';
+
+// const httpLink = new HttpLink({
+//   uri: GITHUB_BASE_URL,
+//   headers: {
+//     authorization: `Bearer ${
+//       GITHUB_PROSONAL_ACCESS_TOKEN
+//     }`
+//   }
+// })
+
+const client = new ApolloClient({
+  uri: GITHUB_BASE_URL,
+  headers: {
+    authorization: `Bearer ${
+      GITHUB_PROSONAL_ACCESS_TOKEN
+    }`
+  }
+})
+
+  
 export default class Root extends React.Component {
   static propTypes = {
     store: PropTypes.object.isRequired,
@@ -50,7 +74,9 @@ export default class Root extends React.Component {
     const children = renderRouteConfigV3(this.props.routeConfig, '/');
     return (
       <Provider store={this.props.store}>
-        <ConnectedRouter history={history}>{children}</ConnectedRouter>
+        <ApolloProvider client={client}>
+          <ConnectedRouter history={history}>{children}</ConnectedRouter>
+        </ApolloProvider>
       </Provider>
     );
   }

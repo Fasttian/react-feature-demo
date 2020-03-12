@@ -19,11 +19,14 @@ export class SidePanel extends Component {
             <Link to="/examples">Welcome</Link>
           </li>
           <li>
-            <Link to="/examples/jinghang-demo">鲸航demo</Link>
+            <Link to="/examples/search-github">search github</Link>
+          </li>
+          <li>
+            <Link to="/examples/jinghang-demo">定时获取数据</Link>
           </li>
         </ul>
         <div className="memo">
-          导航中的有多个feature，删除feature对应对应的文件即可
+          导航中的有多个demo，相互独立，方便演示
         </div>
       </div>
     );
