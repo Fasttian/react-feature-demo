@@ -43,17 +43,10 @@ function renderRouteConfigV3(routes, contextPath) {
   return <Switch>{children}</Switch>;
 }
 
+//graphQL Api 配置
 const GITHUB_BASE_URL = `https://api.github.com/graphql`;
-const GITHUB_PROSONAL_ACCESS_TOKEN= '0fa7af007098ba68e3576823b7ab10d522b33c6e';
-
-// const httpLink = new HttpLink({
-//   uri: GITHUB_BASE_URL,
-//   headers: {
-//     authorization: `Bearer ${
-//       GITHUB_PROSONAL_ACCESS_TOKEN
-//     }`
-//   }
-// })
+//出于演示方便和信任，请勿泄露本人的token，也可替换为使用者的
+const GITHUB_PROSONAL_ACCESS_TOKEN= 'b1b956b9cdb2f39db4578ab1200a0518dc057678';
 
 const client = new ApolloClient({
   uri: GITHUB_BASE_URL,

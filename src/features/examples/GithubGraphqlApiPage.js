@@ -48,6 +48,7 @@ const GET_REPOSITORIES_OF_ORGANIZATION = gql`
 `;
 
 export default function GithubGraphqlApiPage({searchKeyWord}) {
+  //graphQL发起请求
   const { loading, error, data } = useQuery(GET_REPOSITORIES_OF_ORGANIZATION,{
     variables: {
       "organizationName": searchKeyWord
